@@ -21,5 +21,9 @@ public enum EventType {
 	pic_sysphoto,          //弹出系统拍照发图的事件
 	pic_photo_or_album,    //弹出拍照或者相册发图的事件
 	pic_weixin,            //弹出微信相册发图器的事件
-	location_select;       //弹出地理位置选择器的事件
+	location_select,       //弹出地理位置选择器的事件
+	bind,                  //设备绑定事件
+	unbind,                //设备解绑事件
+	subscribe_status,      //订阅设备状态
+	unsubscribe_status;    //退订设备状态
 }

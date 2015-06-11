@@ -104,7 +104,6 @@ public abstract class WechatSupport {
 	}
 	
 
-	
 	/**
 	 * 得到post数据，对象化
 	 * @param xmlStr
@@ -152,6 +151,15 @@ public abstract class WechatSupport {
 		case link:
 			onLink();
 			break;
+		case device_text:
+		  onDeviceText();
+		  break;
+		case device_event:
+		  dispatchDeviceEvent();
+		  break;
+		case device_status:
+		  
+		  break;
 		default:
 			onUnknown();
 			break;
@@ -210,6 +218,23 @@ public abstract class WechatSupport {
 	}
 	
 
+	/*
+	 * device_event事件分发
+	 */
+  private void dispatchDeviceEvent() {
+    EventType deviceEvent = EventType.valueOf(wechatRequest.getEvent());
+    logger.info("dispatch event,event is " + deviceEvent.name());
+    switch (deviceEvent) {
+    case bind:
+      deviceBind();
+      break;
+    case unbind:
+      deviceUnbind();
+      break;
+    default:
+      break;
+    }
+  }
 	/**
 	 * 返回响应数据
 	 * @return
@@ -445,4 +470,17 @@ public abstract class WechatSupport {
 	 * 弹出地理位置选择器的事件
 	 */
 	protected abstract void locationSelect();
+	/**
+	 * 设备绑定事件
+	 */
+	protected abstract void deviceBind();
+	/**
+	 * 设备解绑事件
+	 */
+	protected abstract void deviceUnbind();
+	/**
+	 * 设备消息事件
+	 */
+	protected abstract void onDeviceText();
+	
 }

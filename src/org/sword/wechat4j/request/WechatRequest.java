@@ -40,6 +40,10 @@ public class WechatRequest {
 	private String Precision; //上报地理位置事件Precision
 	private String Ticket;    //扫描带参数二维码事件Ticket
 	private String ThumbMediaId; //视频消息 ThumbMediaId 视频消息缩略图的媒体id，可以调用多媒体文件下载接口拉取数据
+	private String DeviceType;     //设备类型，目前为“公众账号原始ID” 
+	private String DeviceID;       //设备ID，第三方提供 
+	private String SessionID;      //微信客户端生成的session id，用于request和response对应，因此响应中该字段第三方需要原封不变的带回 
+	private String OpenID;         //微信账号的OpenID 
 	private ScanCodeInfo ScanCodeInfo; //扫描信息
 	private SendPicsInfo SendPicsInfo; //发送的图片信息
 	private SendLocationInfo SendLocationInfo;   //发送的位置信息
@@ -213,6 +217,34 @@ public class WechatRequest {
 	public void setThumbMediaId(String thumbMediaId) {
 		ThumbMediaId = thumbMediaId;
 	}
+	@XmlElement(name="DeviceType")
+	public String getDeviceType(){
+	  return DeviceType;
+	}
+	public void setDeviceType(String deviceType) {
+	  DeviceType = deviceType;
+	}
+	@XmlElement(name="DeviceID")
+    public String getDeviceID(){
+      return DeviceID;
+    }
+    public void setDeviceID(String deviceID) {
+      DeviceID = deviceID;
+    }
+    @XmlElement(name="SessionID")
+    public String getSessionID(){
+      return SessionID;
+    }
+    public void setSessionID(String sessionID) {
+      SessionID = sessionID;
+    }
+    @XmlElement(name="OpenID")
+    public String getOpenID(){
+      return OpenID;
+    }
+    public void setOpenID(String openID) {
+      OpenID = openID;
+    }
 	@XmlElement(name="ScanCodeInfo")
 	public ScanCodeInfo getScanCodeInfo() {
 		return ScanCodeInfo;

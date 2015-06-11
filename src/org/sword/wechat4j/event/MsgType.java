@@ -17,5 +17,9 @@ public enum MsgType {
 	voice,
 	video,
 	music,
-	news;
+	news,
+	device_text,  //设备消息
+	device_event,  //设备事件
+	device_status; //设备状态
+	
 }

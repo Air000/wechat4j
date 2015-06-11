@@ -135,5 +135,17 @@ public class Wechat extends WechatSupport{
 		
 	}
 
+  @Override
+  protected void deviceBind() {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  protected void deviceUnbind() {
+    // TODO Auto-generated method stub
+    
+  }
+
 
 }
